@@ -1,0 +1,10 @@
+#打印1 到 100 的和
+v = 1
+num = 0
+while  v  <= 100:
+    num = num + v
+    v += 1
+print(num)
+
+#第二种 函数方式
+print(sum(range(1, 101)))
