@@ -1,0 +1,52 @@
+# 递归的方式来生成斐波那契数列
+ def rec_fibo(n):
+     if n <= 1:
+         return n
+     else:
+         return (rec_fibo(n - 1) + rec_fibo(n - 2))
+
+ nterms = int(input('您要输出几项?'))
+
+ if nterms <= 0:
+     print('输入正数')
+ else:
+     print('斐波那契数列:')
+     for i in range(nterms):
+         print(rec_fibo(i))
+
+# 生成指定日期的日历
+ import calendar
+ yy = int(input('输入年份:'))
+ mm = int(input('输入月份:'))
+ print(calendar.month(yy, mm))
+
+# 阶乘实例
+ num = int(input('请输入一个数字: '))
+ fact = 1
+ if num < 0:
+     print('负数没有阶乘')
+ elif num == 0:
+     print('0 的阶乘为 1')
+ else:
+     for i in range(1, num + 1):
+         fact = fact * i
+     print('%d 的阶乘为 %d' %(num,fact))
+
+# 九九乘法表
+ for i in range(1, 10):
+     for j in range(1, i+1):
+         print('{}x{}={}\t'.format(i, j, i * j), end='')
+     print()
+
+# 根据IP或子网返回网络、掩码、广播等信息
+ from IPy import IP
+ ip_s = input('Please input an IP or net-reange:' )
+ ips = IP(ip_s)
+ if len(ips) > 1:
+     print('net: %s' %ips.net())
+     print('netmask: %s' % ips.netmask())
+     print('broadcast: %s' % ips.broadcast())
+     print('reverse address: %s' % ips.reverseName())
+     print('subnet: %s' % len(ips))
+ else:
+     print('reverse address: %s' % ips.reverseName()[0])
