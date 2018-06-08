@@ -1,8 +1,14 @@
 import paramiko
 
+#定义key变量
+
+#p_key = paramiko.RSAKey.from_private_key_file('ssh_key')
+
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh.connect('192.168.1.5', port=22, username='root', password='root', timeout=20)
+#ssh_key 连接远程linux系统
+#ssh.connect('192.168.1.5', port=22, username='root', pkey=p_key, timeout=20)
 stdin,stdout,stderr = ssh.exec_command('ifconfig')
 # result = stdout.readlines()
 result = stdout.read().decode()
