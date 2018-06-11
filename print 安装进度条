@@ -1,0 +1,16 @@
+#print 安装进度条
+
+import time, sys
+total_size=10000
+recv_size=0
+def progress(percent, width=50):
+    if percent > 1:
+        percent=1
+    show_str = ('[%%-%ds]' %width) % (int(percent*width)*'>')
+    print('\r%s %s%%' %(show_str,int(percent*100)), end='',file=sys.stdout,flush=True)
+
+while recv_size < total_size:
+    time.sleep(0.5)
+    recv_size+=1024
+    percent=recv_size/total_size
+    progress(percent,width=30)
