@@ -122,3 +122,4 @@ function WEIXIN() {
         echo "you input error!"
         ;;
 esac
+1
